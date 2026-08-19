@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register — InnovateUS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <img src="https://innovate-us.org/images/logos/innovateus.svg" alt="innovate(us)" height="32" />
+      </a>
+      <nav class="site-nav">
+        <a href="#">Ways to Learn</a>
+        <a href="#">Featured Topics</a>
+        <a href="#">News &amp; Perspectives</a>
+        <a href="#">About Us</a>
+      </nav>
+      <a href="#" class="nav-cta">Sign Up for Updates</a>
+    </div>
+  </header>
+
+  <main class="form-wrap">
+    <div class="form-card">
+      <h1>Register</h1>
+      <p class="subhead">Create your account to get started.</p>
+
+      <form id="registration-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required />
+        </div>
+
+        <div class="field">
+          <label for="email">Email address</label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+
+        <div class="field checkbox-field">
+          <input type="checkbox" id="newsletter" name="newsletter" />
+          <label for="newsletter">Send me occasional newsletter updates</label>
+        </div>
+
+        <button type="submit" id="submit-btn">Create account</button>
+
+        <p id="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h3>Ways to Learn</h3>
+        <a href="#">At-Your-Own-Pace Courses</a>
+        <a href="#">Workshops</a>
+        <a href="#">Coaching Programs</a>
+      </div>
+      <div class="footer-col">
+        <h3>News &amp; Perspectives</h3>
+        <a href="#">Updates from InnovateUS</a>
+        <a href="#">Reboot Democracy Blog</a>
+        <a href="#">Observatory of Public Sector AI</a>
+      </div>
+      <div class="footer-col">
+        <h3>About Us</h3>
+        <a href="#">Mission &amp; Vision</a>
+        <a href="#">Our Team</a>
+        <a href="#">Media Kit</a>
+      </div>
+      <div class="footer-col subscribe-col">
+        <h3>Subscribe for Updates</h3>
+        <div class="subscribe-box">
+          <input type="email" placeholder="Email address" />
+          <button type="button">SUBSCRIBE</button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Contact Us</span>
+      <span>Privacy Policy</span>
+      <span>Accessibility Policy</span>
+      <span class="footer-license">Licensed under CC BY-SA 4.0</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

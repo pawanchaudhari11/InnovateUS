@@ -1,0 +1,261 @@
+:root {
+  --color-ink: #142941;          /* Deep Space Blue */
+  --color-primary: #0064d1;      /* Smart Blue */
+  --color-primary-dark: #124d8f; /* Steel Azure */
+  --color-gold: #d09006;         /* Harvest Gold */
+  --color-gold-light: #fdce3e;   /* Golden Pollen */
+  --color-bg: #f9fbff;           /* Ghost White */
+  --color-surface: #ffffff;
+  --color-border: #bcd8f6;       /* Icy Blue */
+  --color-alice: #e4effc;        /* Alice Blue */
+  --color-muted: #5b6b7c;
+  --radius: 8px;
+  --shadow: 0 1px 2px rgba(20, 41, 65, 0.06), 0 12px 32px rgba(20, 41, 65, 0.08);
+  --font-display: "DM Serif Display", Georgia, serif;
+  --font-body: "Libre Franklin", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--color-bg);
+  color: var(--color-ink);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.site-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.logo img { display: block; }
+.site-nav {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.site-nav a { color: var(--color-ink); }
+.site-nav a:hover { color: var(--color-primary); }
+.nav-cta {
+  background: var(--color-gold);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+}
+.nav-cta:hover { background: var(--color-gold-light); }
+
+.form-wrap {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 56px 20px;
+}
+.form-card {
+  width: 100%;
+  max-width: 400px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px;
+}
+.form-card h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin: 0 0 6px;
+  color: var(--color-ink);
+}
+.subhead {
+  margin: 0 0 26px;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+.field input[type="text"],
+.field input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: var(--color-surface);
+  color: var(--color-ink);
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 100, 209, 0.15);
+}
+.checkbox-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.checkbox-field label {
+  font-weight: 400;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  margin: 0;
+}
+.checkbox-field input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: 5px;
+  background: var(--color-surface);
+  cursor: pointer;
+  position: relative;
+}
+.checkbox-field input[type="checkbox"]:checked {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+}
+.checkbox-field input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.checkbox-field input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  margin-top: 6px;
+}
+button[type="submit"]:hover { background: var(--color-primary-dark); }
+button[type="submit"]:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
+#form-message {
+  min-height: 1.2em;
+  margin: 14px 0 0;
+  font-size: 0.88rem;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+.site-footer {
+  background: var(--color-ink);
+  color: var(--color-alice);
+  padding: 48px 24px 24px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.footer-col { min-width: 160px; }
+.footer-col h3 {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-gold-light);
+  margin: 0 0 12px;
+}
+.footer-col a {
+  display: block;
+  color: var(--color-alice);
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+.footer-col a:hover { opacity: 1; text-decoration: underline; }
+.subscribe-box { display: flex; gap: 8px; }
+.subscribe-box input {
+  flex: 1;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: inherit;
+}
+.subscribe-box input::placeholder { color: rgba(255, 255, 255, 0.6); }
+.subscribe-box button {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+}
+.footer-license { margin-left: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+@media (max-width: 640px) {
+  .header-inner { flex-wrap: wrap; gap: 12px; }
+  .site-nav { order: 3; width: 100%; flex-wrap: wrap; gap: 12px 20px; }
+  .form-card { padding: 24px; }
+  .footer-license { margin-left: 0; }
+}
