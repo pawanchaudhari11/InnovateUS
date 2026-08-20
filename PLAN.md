@@ -27,10 +27,10 @@ Confirmed via `GET /fields/cw_intake`. The real collection is much richer than o
 | `newsletter` | boolean | yes | confirmed field name (not `newsletter_opt_in`) |
 | `consent_at` | timestamp | no | set client-side at submission time |
 
-`workshop_series` is hardcoded to a real, currently-listed series from innovate-us.org/workshops ("Practical Approaches to Evaluating AI for Public Benefit", Fall 2026 Live Series), since the live `/register` page has no events listed to pull a real value from.
+`workshop_series` is a **multi-select checklist** ("Selected Event Series") of the 14 real Fall 2026 Live Series names from innovate-us.org — matches what the live `/register` page's Zoom Events widget actually renders client-side (a plain HTML fetch only sees the pre-render "Loading events…" state, which is why this was missed initially). Selected series are comma-joined into `workshop_series`, per the field's own schema note. At least one must be selected to submit.
 
 ## Phase 1 — Static design (done, revised after Phase 0)
-`index.html` / `style.css`: nav + footer styled to the brand kit, registration card expanded to match the confirmed schema — first/last name, email, country (+ conditional state), gov-org yes/no (+ conditional gov level), newsletter checkbox, submit button. Workshop series shown as a read-only banner (hardcoded, see Phase 0). Other real-site elements (nav links, any SSO-style buttons) are visual only, per your note — not wired up.
+`index.html` / `style.css`: nav + footer styled to the brand kit, registration card expanded to match the confirmed schema — first/last name, email, country (+ conditional state), gov-org yes/no (+ conditional gov level), a "Selected Event Series" multi-select checklist (see Phase 0), newsletter checkbox, submit button. Other real-site elements (nav links, any SSO-style buttons) are visual only, per your note — not wired up.
 
 ## Phase 2 — Submit logic (done)
 `script.js` posts JSON to `/api/submit`. `api/submit.js` (Vercel function) validates required fields, forwards to Directus with `DIRECTUS_TOKEN` (server-side only, via `process.env`), and proxies back a sanitized success/error response. `.env.example` documents the required env var.

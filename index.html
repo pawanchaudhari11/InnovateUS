@@ -28,8 +28,7 @@
   <main class="form-wrap">
     <div class="form-card">
       <h1>Register</h1>
-      <p class="subhead">You're registering for:</p>
-      <p class="series-name" id="series-name"></p>
+      <p class="subhead">Create your account to get started.</p>
 
       <form id="registration-form" novalidate>
         <div class="field-row">
@@ -78,6 +77,13 @@
             <option value="Other">Other</option>
           </select>
         </div>
+
+        <fieldset class="field series-fieldset">
+          <legend>Selected Event Series</legend>
+          <p class="series-count" id="series-count">You are registering for 0 event series.</p>
+          <p class="series-hint" id="series-hint">Select at least one series to continue.</p>
+          <div class="series-list" id="series-list"></div>
+        </fieldset>
 
         <div class="field checkbox-field">
           <input type="checkbox" id="newsletter" name="newsletter" />
