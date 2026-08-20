@@ -35,8 +35,10 @@ Confirmed via `GET /fields/cw_intake`. The real collection is much richer than o
 ## Phase 2 — Submit logic (done)
 `script.js` posts JSON to `/api/submit`. `api/submit.js` (Vercel function) validates required fields, forwards to Directus with `DIRECTUS_TOKEN` (server-side only, via `process.env`), and proxies back a sanitized success/error response. `.env.example` documents the required env var.
 
-## Phase 3 — Local testing
-`vercel dev`, submit a few `you+1@example.org`-style entries, verify with a GET, then one real entry.
+## Phase 3 — Local testing (test entries done; real entry pending)
+No `vercel` CLI available locally, so `api/submit.js` was exercised with a minimal local Node harness (not committed) that calls the handler directly. Submitted `you+1@example.org` (US, gov_org=Yes, gov_level=Local) and `you+2@example.org` (Canada, gov_org=No) — both verified via `GET /items/cw_intake` (ids 12, 13), field values matched. A missing-required-fields request correctly returned a 400. One real entry (real name/email) still needs to be submitted before Phase 4 — pending confirmation of whose info to use.
+
+Note: the collection already contains other candidates' real test entries (shared assignment Directus instance) — visible to anyone with the token via GET.
 
 ## Phase 4 — Deploy
 Push to GitHub → import to Vercel → set `DIRECTUS_TOKEN` in Vercel's env vars → deploy → get the `*.vercel.app` link.
