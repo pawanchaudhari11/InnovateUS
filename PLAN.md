@@ -46,6 +46,8 @@ No `vercel` CLI available locally, so `api/submit.js` was exercised with a minim
 Note: the collection already contains other candidates' real test entries (shared assignment Directus instance) — visible to anyone with the token via GET.
 
 ## Phase 4 — Deploy
+Note: earlier pushed commits were authored under a different local git identity (`pawan1162k`) than the `pawanchaudhari11` GitHub account that owns this repo/Vercel project, which blocked Vercel's GitHub deploy check ("not a member of the team"). Fixed the repo-local `git config user.name`/`user.email` to match `pawanchaudhari11` going forward; existing commit history was left as-is per your call.
+
 Push to GitHub → import to Vercel → set `DIRECTUS_TOKEN` in Vercel's env vars → deploy → get the `*.vercel.app` link.
 
 ## Phase 5 — Write-up
