@@ -26,28 +26,16 @@ const WORKSHOP_ICONS = [
   '👷', '🏗️', '📣', '🤖', '🧑‍💼', '🔒', '💬',
 ];
 
-const COUNTRIES = [
-  'United States', 'Canada', 'United Kingdom', 'Australia', 'New Zealand',
-  'Ireland', 'Germany', 'France', 'Spain', 'Italy', 'Netherlands', 'Belgium',
-  'Switzerland', 'Austria', 'Sweden', 'Norway', 'Denmark', 'Finland', 'Iceland',
-  'Portugal', 'Greece', 'Poland', 'Czech Republic', 'Hungary', 'Romania',
-  'Bulgaria', 'Ukraine', 'Mexico', 'Brazil', 'Argentina', 'Chile', 'Colombia',
-  'Peru', 'South Africa', 'Nigeria', 'Kenya', 'Egypt', 'India', 'Pakistan',
-  'Bangladesh', 'China', 'Japan', 'South Korea', 'Singapore', 'Philippines',
-  'Indonesia', 'Malaysia', 'Thailand', 'Vietnam', 'Israel', 'United Arab Emirates',
-  'Saudi Arabia', 'Turkey', 'Other',
-];
-
 const US_STATES = [
-  'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
-  'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia',
-  'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-  'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-  'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-  'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-  'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina',
-  'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia',
-  'Washington', 'West Virginia', 'Wisconsin', 'Wyoming', 'Puerto Rico',
+  'AL', 'AK', 'AZ', 'AR', 'CA', 'CO',
+  'CT', 'DE', 'DC', 'FL', 'GA',
+  'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY',
+  'LA', 'ME', 'MD', 'MA', 'MI', 'MN',
+  'MS', 'MO', 'MT', 'NE', 'NV', 'NH',
+  'NJ', 'NM', 'NY', 'NC', 'ND',
+  'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
+  'SD', 'TN', 'TX', 'UT', 'VT', 'VA',
+  'WA', 'WV', 'WI', 'WY', 'PR',
 ];
 
 function populateSelect(select, options, placeholder) {
@@ -67,9 +55,11 @@ function populateSelect(select, options, placeholder) {
 }
 
 const form = document.getElementById('registration-form');
-const countrySelect = document.getElementById('country');
+const countrySelect = document.getElementById('country_select');
 const stateField = document.getElementById('state-field');
-const stateSelect = document.getElementById('state');
+const stateSelect = document.getElementById('state_select');
+const nonUsField = document.getElementById('non-us-field');
+const nonUsRegion = document.getElementById('non_us_region');
 const govOrgSelect = document.getElementById('gov_org');
 const govLevelField = document.getElementById('gov_level-field');
 const govLevelSelect = document.getElementById('gov_level');
@@ -80,7 +70,6 @@ const seriesList = document.getElementById('series-list');
 const seriesCount = document.getElementById('series-count');
 const selectAllBtn = document.getElementById('select-all-btn');
 
-populateSelect(countrySelect, COUNTRIES, 'Select a country');
 populateSelect(stateSelect, US_STATES, 'Select a state');
 
 WORKSHOP_SERIES.forEach((series, i) => {
@@ -135,9 +124,14 @@ seriesList.addEventListener('change', () => {
 
 countrySelect.addEventListener('change', () => {
   const isUS = countrySelect.value === 'United States';
+  const isOther = countrySelect.value !== '' && !isUS;
+
   stateField.hidden = !isUS;
   stateSelect.required = isUS;
   if (!isUS) stateSelect.value = '';
+
+  nonUsField.hidden = !isOther;
+  if (!isOther) nonUsRegion.value = '';
 });
 
 function getGovOrg() {
@@ -151,6 +145,18 @@ govOrgSelect.addEventListener('change', () => {
   govLevelSelect.required = showsLevel;
   if (!showsLevel) govLevelSelect.value = '';
 });
+
+// Force a blank slate on every load/refresh — browsers can restore previously
+// selected values on reload without firing 'change', which would otherwise
+// leave conditional fields out of sync with the (restored) selection.
+countrySelect.value = '';
+stateField.hidden = true;
+stateSelect.required = false;
+nonUsField.hidden = true;
+
+govOrgSelect.value = '';
+govLevelField.hidden = true;
+govLevelSelect.required = false;
 
 function getWorkshopParam() {
   return new URLSearchParams(window.location.search).get('workshop');
@@ -173,7 +179,7 @@ form.addEventListener('submit', async (e) => {
     last_name: document.getElementById('last_name').value.trim(),
     email: document.getElementById('email').value.trim(),
     country: countrySelect.value,
-    state: stateField.hidden ? null : stateSelect.value,
+    state: !stateField.hidden ? stateSelect.value : (!nonUsField.hidden ? nonUsRegion.value.trim() || null : null),
     gov_org: getGovOrg(),
     gov_level: govLevelField.hidden ? null : govLevelSelect.value,
     workshop_series: selectedSeries.join(', '),
@@ -201,6 +207,7 @@ form.addEventListener('submit', async (e) => {
     formMessage.textContent = 'You’re registered! Check your email for details.';
     form.reset();
     stateField.hidden = true;
+    nonUsField.hidden = true;
     govLevelField.hidden = true;
     updateSeriesCount();
   } catch (err) {
