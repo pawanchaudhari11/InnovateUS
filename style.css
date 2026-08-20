@@ -87,10 +87,21 @@ a {
   color: var(--color-ink);
 }
 .subhead {
-  margin: 0 0 26px;
+  margin: 0 0 2px;
   color: var(--color-muted);
   font-size: 0.95rem;
 }
+.series-name {
+  margin: 0 0 26px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+.field-row {
+  display: flex;
+  gap: 14px;
+}
+.field-row .field { flex: 1; }
 .field { margin-bottom: 18px; }
 .field label {
   display: block;
@@ -100,7 +111,8 @@ a {
   color: var(--color-ink);
 }
 .field input[type="text"],
-.field input[type="email"] {
+.field input[type="email"],
+.field select {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--color-border);
@@ -110,7 +122,9 @@ a {
   background: var(--color-surface);
   color: var(--color-ink);
 }
-.field input:focus {
+.field select { appearance: auto; }
+.field input:focus,
+.field select:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(0, 100, 209, 0.15);
@@ -258,4 +272,5 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   .site-nav { order: 3; width: 100%; flex-wrap: wrap; gap: 12px 20px; }
   .form-card { padding: 24px; }
   .footer-license { margin-left: 0; }
+  .field-row { flex-direction: column; gap: 0; }
 }

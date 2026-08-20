@@ -10,26 +10,27 @@
 - **Fonts:** DM Serif Display (titles), Libre Franklin (body/labels) — both on Google Fonts
 - **Logo:** "innovate" in dark blue + "(us)" in gold, lowercase
 
-## Phase 0 — Schema check (blocked on you)
-Run this and send me the output:
-```bash
-export DIRECTUS_TOKEN=<token from the assignment email>
-curl https://burnes-center.directus.app/fields/cw_intake \
-  -H "Authorization: Bearer $DIRECTUS_TOKEN"
-```
-This tells us whether a newsletter-type field already exists, its name, and its type.
+## Phase 0 — Schema check (done)
+Confirmed via `GET /fields/cw_intake`. The real collection is much richer than originally assumed — full field list:
 
-If it's missing, we'll also need to try adding it:
-```bash
-curl -X POST https://burnes-center.directus.app/fields/cw_intake \
-  -H "Authorization: Bearer $DIRECTUS_TOKEN" \
-  -H "Content-Type: application/json" \
-  -d '{"field": "newsletter_opt_in", "type": "boolean", "meta": {"interface": "boolean"}, "schema": {"default_value": false}}'
-```
-If that 403s, send me the error — we'll fall back to a checkbox that's UI-only (selectable/deselectable, not necessarily persisted) rather than assume a field that isn't there.
+| Field | Type | Required | Notes |
+|---|---|---|---|
+| `first_name` | string | yes | |
+| `last_name` | string | yes | |
+| `email` | string | yes | |
+| `country` | string | yes | |
+| `state` | string | no | only when country = United States |
+| `gov_org` | string | yes | "the government-organization question, verbatim answer" |
+| `gov_level` | string | no | only when gov_org is a yes |
+| `workshop_series` | text | yes | "selected series, comma-joined — the form registers for SERIES" |
+| `workshops` | text | no | only when a single workshop came via `?workshop=<id>` |
+| `newsletter` | boolean | yes | confirmed field name (not `newsletter_opt_in`) |
+| `consent_at` | timestamp | no | set client-side at submission time |
 
-## Phase 1 — Static design (unblocked, starting now)
-`index.html` / `style.css`: nav + footer styled to the brand kit, hypothetical registration card (name, email, newsletter checkbox, submit button). Other real-site elements (nav links, any SSO-style buttons) are visual only, per your note — not wired up.
+`workshop_series` is hardcoded to a real, currently-listed series from innovate-us.org/workshops ("Practical Approaches to Evaluating AI for Public Benefit", Fall 2026 Live Series), since the live `/register` page has no events listed to pull a real value from.
+
+## Phase 1 — Static design (done, revised after Phase 0)
+`index.html` / `style.css`: nav + footer styled to the brand kit, registration card expanded to match the confirmed schema — first/last name, email, country (+ conditional state), gov-org yes/no (+ conditional gov level), newsletter checkbox, submit button. Workshop series shown as a read-only banner (hardcoded, see Phase 0). Other real-site elements (nav links, any SSO-style buttons) are visual only, per your note — not wired up.
 
 ## Phase 2 — Submit logic
 `script.js` posts to `/api/submit`. `api/submit.js` (Vercel function) forwards the request to Directus using the real field name confirmed in Phase 0.
