@@ -1,0 +1,9 @@
+{
+  "name": "innovateus-registration-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "description": "InnovateUS hypothetical registration form prototype (take-home assignment)",
+  "engines": {
+    "node": ">=18"
+  }
+}

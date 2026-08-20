@@ -32,8 +32,8 @@ Confirmed via `GET /fields/cw_intake`. The real collection is much richer than o
 ## Phase 1 — Static design (done, revised after Phase 0)
 `index.html` / `style.css`: nav + footer styled to the brand kit, registration card expanded to match the confirmed schema — first/last name, email, country (+ conditional state), gov-org yes/no (+ conditional gov level), newsletter checkbox, submit button. Workshop series shown as a read-only banner (hardcoded, see Phase 0). Other real-site elements (nav links, any SSO-style buttons) are visual only, per your note — not wired up.
 
-## Phase 2 — Submit logic
-`script.js` posts to `/api/submit`. `api/submit.js` (Vercel function) forwards the request to Directus using the real field name confirmed in Phase 0.
+## Phase 2 — Submit logic (done)
+`script.js` posts JSON to `/api/submit`. `api/submit.js` (Vercel function) validates required fields, forwards to Directus with `DIRECTUS_TOKEN` (server-side only, via `process.env`), and proxies back a sanitized success/error response. `.env.example` documents the required env var.
 
 ## Phase 3 — Local testing
 `vercel dev`, submit a few `you+1@example.org`-style entries, verify with a GET, then one real entry.
