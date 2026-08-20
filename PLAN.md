@@ -35,8 +35,13 @@ Confirmed via `GET /fields/cw_intake`. The real collection is much richer than o
 ## Phase 2 — Submit logic (done)
 `script.js` posts JSON to `/api/submit`. `api/submit.js` (Vercel function) validates required fields, forwards to Directus with `DIRECTUS_TOKEN` (server-side only, via `process.env`), and proxies back a sanitized success/error response. `.env.example` documents the required env var.
 
-## Phase 3 — Local testing (test entries done; real entry pending)
-No `vercel` CLI available locally, so `api/submit.js` was exercised with a minimal local Node harness (not committed) that calls the handler directly. Submitted `you+1@example.org` (US, gov_org=Yes, gov_level=Local) and `you+2@example.org` (Canada, gov_org=No) — both verified via `GET /items/cw_intake` (ids 12, 13), field values matched. A missing-required-fields request correctly returned a 400. One real entry (real name/email) still needs to be submitted before Phase 4 — pending confirmation of whose info to use.
+## Phase 3 — Local testing (done)
+No `vercel` CLI available locally, so `api/submit.js` was exercised with a minimal local Node harness (not committed) that calls the handler directly. All verified via `GET /items/cw_intake`, field values matched:
+- `you+1@example.org` (US, gov_org=Yes, gov_level=Local) — id 12
+- `you+2@example.org` (Canada, gov_org=No) — id 13
+- `chaudhari.paw+1@northeastern.edu`, `chaudhari.paw+2@northeastern.edu` (plus-addressed, per Anirudh's format) — ids 14, 15
+- Final real entry: Pawan Chaudhari, `chaudhari.paw@northeastern.edu` — id 16
+- A missing-required-fields request correctly returned a 400
 
 Note: the collection already contains other candidates' real test entries (shared assignment Directus instance) — visible to anyone with the token via GET.
 
