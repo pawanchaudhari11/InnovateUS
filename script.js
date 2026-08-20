@@ -20,6 +20,12 @@ const WORKSHOP_SERIES = [
   'The Prompting Lab: Real Prompts, Real Challenges, All Platforms',
 ];
 
+// Decorative icons only — arbitrary, swappable, not tied to real site data.
+const WORKSHOP_ICONS = [
+  '📊', '⚡', '🧾', '🏛️', '🏥', '🔮', '⚖️',
+  '👷', '🏗️', '📣', '🤖', '🧑‍💼', '🔒', '💬',
+];
+
 const COUNTRIES = [
   'United States', 'Canada', 'United Kingdom', 'Australia', 'New Zealand',
   'Ireland', 'Germany', 'France', 'Spain', 'Italy', 'Netherlands', 'Belgium',
@@ -72,6 +78,7 @@ const formMessage = document.getElementById('form-message');
 const seriesFieldset = document.querySelector('.series-fieldset');
 const seriesList = document.getElementById('series-list');
 const seriesCount = document.getElementById('series-count');
+const selectAllBtn = document.getElementById('select-all-btn');
 
 populateSelect(countrySelect, COUNTRIES, 'Select a country');
 populateSelect(stateSelect, US_STATES, 'Select a state');
@@ -86,11 +93,18 @@ WORKSHOP_SERIES.forEach((series, i) => {
   checkbox.name = 'workshop_series';
   checkbox.value = series;
 
+  const badge = document.createElement('span');
+  badge.className = 'icon-badge';
+  badge.setAttribute('aria-hidden', 'true');
+  badge.textContent = WORKSHOP_ICONS[i] || '📌';
+
   const label = document.createElement('label');
   label.htmlFor = `series-${i}`;
+  label.className = 'title';
   label.textContent = series;
 
   item.appendChild(checkbox);
+  item.appendChild(badge);
   item.appendChild(label);
   seriesList.appendChild(item);
 });
@@ -99,9 +113,23 @@ function getSelectedSeries() {
   return Array.from(seriesList.querySelectorAll('input[type="checkbox"]:checked')).map((el) => el.value);
 }
 
-seriesList.addEventListener('change', () => {
+function updateSeriesCount() {
   const selected = getSelectedSeries();
-  seriesCount.textContent = `You are registering for ${selected.length} event series.`;
+  seriesCount.innerHTML = `You are registering for <strong>${selected.length}</strong> event series.`;
+  selectAllBtn.textContent = selected.length === WORKSHOP_SERIES.length ? 'Deselect All Series' : 'Select All Series';
+  return selected;
+}
+
+selectAllBtn.addEventListener('click', () => {
+  const allChecked = getSelectedSeries().length === WORKSHOP_SERIES.length;
+  seriesList.querySelectorAll('input[type="checkbox"]').forEach((el) => {
+    el.checked = !allChecked;
+  });
+  if (updateSeriesCount().length > 0) seriesFieldset.classList.remove('invalid');
+});
+
+seriesList.addEventListener('change', () => {
+  const selected = updateSeriesCount();
   if (selected.length > 0) seriesFieldset.classList.remove('invalid');
 });
 
@@ -112,10 +140,16 @@ countrySelect.addEventListener('change', () => {
   if (!isUS) stateSelect.value = '';
 });
 
+function getGovOrg() {
+  return govOrgSelect.value;
+}
+
 govOrgSelect.addEventListener('change', () => {
-  const isYes = govOrgSelect.value === 'Yes';
-  govLevelField.hidden = !isYes;
-  if (!isYes) govLevelSelect.value = '';
+  const selectedOption = govOrgSelect.selectedOptions[0];
+  const showsLevel = selectedOption ? selectedOption.dataset.showsLevel === 'true' : false;
+  govLevelField.hidden = !showsLevel;
+  govLevelSelect.required = showsLevel;
+  if (!showsLevel) govLevelSelect.value = '';
 });
 
 function getWorkshopParam() {
@@ -140,7 +174,7 @@ form.addEventListener('submit', async (e) => {
     email: document.getElementById('email').value.trim(),
     country: countrySelect.value,
     state: stateField.hidden ? null : stateSelect.value,
-    gov_org: govOrgSelect.value,
+    gov_org: getGovOrg(),
     gov_level: govLevelField.hidden ? null : govLevelSelect.value,
     workshop_series: selectedSeries.join(', '),
     workshops: getWorkshopParam(),
@@ -168,7 +202,7 @@ form.addEventListener('submit', async (e) => {
     form.reset();
     stateField.hidden = true;
     govLevelField.hidden = true;
-    seriesCount.textContent = 'You are registering for 0 event series.';
+    updateSeriesCount();
   } catch (err) {
     formMessage.textContent = err.message || 'Something went wrong. Please try again.';
   } finally {

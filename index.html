@@ -6,7 +6,7 @@
   <title>Register — InnovateUS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Libre+Franklin:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Libre+Franklin:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -16,10 +16,10 @@
         <img src="https://innovate-us.org/images/logos/innovateus.svg" alt="innovate(us)" height="32" />
       </a>
       <nav class="site-nav">
-        <a href="#">Ways to Learn</a>
-        <a href="#">Featured Topics</a>
-        <a href="#">News &amp; Perspectives</a>
-        <a href="#">About Us</a>
+        <a href="#">Ways to Learn <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
+        <a href="#">Featured Topics <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
+        <a href="#">News &amp; Perspectives <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
+        <a href="#">About Us <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
       </nav>
       <a href="#" class="nav-cta">Sign Up for Updates</a>
     </div>
@@ -27,61 +27,71 @@
 
   <main class="form-wrap">
     <div class="form-card">
-      <h1>Register</h1>
-      <p class="subhead">Create your account to get started.</p>
+      <h1>Registration Details</h1>
+      <p class="subhead">&nbsp;</p>
 
       <form id="registration-form" novalidate>
+        <div class="field">
+          <label for="email">Email address <span class="required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required />
+        </div>
+
         <div class="field-row">
           <div class="field">
-            <label for="first_name">First name</label>
+            <label for="first_name">First name <span class="required">*</span></label>
             <input type="text" id="first_name" name="first_name" autocomplete="given-name" required />
           </div>
           <div class="field">
-            <label for="last_name">Last name</label>
+            <label for="last_name">Last name <span class="required">*</span></label>
             <input type="text" id="last_name" name="last_name" autocomplete="family-name" required />
           </div>
         </div>
 
-        <div class="field">
-          <label for="email">Email address</label>
-          <input type="email" id="email" name="email" autocomplete="email" required />
-        </div>
-
-        <div class="field">
-          <label for="country">Country</label>
-          <select id="country" name="country" autocomplete="country-name" required></select>
+        <div class="field-row">
+          <div class="field field-half">
+            <label for="country">Country <span class="required">*</span></label>
+            <select id="country" name="country" autocomplete="country-name" required></select>
+          </div>
         </div>
 
         <div class="field" id="state-field" hidden>
-          <label for="state">State</label>
-          <select id="state" name="state" autocomplete="address-level1"></select>
+          <label for="state">State <span class="required">*</span></label>
+          <select id="state" name="state" autocomplete="address-level1" required></select>
         </div>
 
-        <div class="field">
-          <label for="gov_org">Do you work for a government organization?</label>
-          <select id="gov_org" name="gov_org" required>
-            <option value="" disabled selected>Select an answer</option>
-            <option value="Yes">Yes</option>
-            <option value="No">No</option>
-          </select>
-        </div>
+        <div class="field-row field-row--align-bottom">
+          <div class="field field-half">
+            <label for="gov_org">Do you work for or primarily support a government or government-affiliated organization? <span class="required">*</span></label>
+            <select id="gov_org" name="gov_org" required>
+              <option value="" disabled selected>Select an answer</option>
+              <option value="Yes, I'm an employee of a government agency" data-shows-level="true">Yes, I'm an employee of a government agency</option>
+              <option value="Yes, I'm a contractor or consultant working with a government agency" data-shows-level="true">Yes, I'm a contractor or consultant working with a government agency</option>
+              <option value="Yes, I work for a government-affiliated organization (e.g., public university, nonprofit, or quasi-governmental organization)" data-shows-level="true">Yes, I work for a government-affiliated organization (e.g., public university, nonprofit, or quasi-governmental organization)</option>
+              <option value="No, I do not work for or support a government or government-affiliated organization">No, I do not work for or support a government or government-affiliated organization</option>
+            </select>
+          </div>
 
-        <div class="field" id="gov_level-field" hidden>
-          <label for="gov_level">Level of government</label>
-          <select id="gov_level" name="gov_level">
-            <option value="" disabled selected>Select a level</option>
-            <option value="Federal">Federal</option>
-            <option value="State">State</option>
-            <option value="Local">Local</option>
-            <option value="Tribal">Tribal</option>
-            <option value="Other">Other</option>
-          </select>
+          <div class="field field-half" id="gov_level-field" hidden>
+            <label for="gov_level">If a government employee or consultant: What level of government <span class="required">*</span></label>
+            <select id="gov_level" name="gov_level" required>
+              <option value="" disabled selected>Select a level</option>
+              <option value="Federal">Federal</option>
+              <option value="State">State</option>
+              <option value="Local">Local</option>
+              <option value="Tribal">Tribal</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
         </div>
 
         <fieldset class="field series-fieldset">
-          <legend>Selected Event Series</legend>
-          <p class="series-count" id="series-count">You are registering for 0 event series.</p>
+          <legend>Selected Event Series <span class="required">*</span></legend>
+          <p class="series-count" id="series-count">You are registering for <strong>0</strong> event series.</p>
           <p class="series-hint" id="series-hint">Select at least one series to continue.</p>
+          <div class="select-all-bar">
+            <button type="button" class="select-all-btn" id="select-all-btn">Select All Series</button>
+            <span class="select-all-hint">or choose individual series below</span>
+          </div>
           <div class="series-list" id="series-list"></div>
         </fieldset>
 
@@ -90,46 +100,52 @@
           <label for="newsletter">Send me occasional newsletter updates</label>
         </div>
 
-        <button type="submit" id="submit-btn">Register</button>
+        <div class="form-footer">
+          <button type="submit" id="submit-btn">Register</button>
 
-        <p id="form-message" role="status" aria-live="polite"></p>
+          <p id="form-message" role="status" aria-live="polite"></p>
+
+          <p class="support-text">Having trouble registering? Contact us at <span class="obfuscated-email">hello [at] innovate-us.org</span></p>
+        </div>
       </form>
     </div>
   </main>
 
   <footer class="site-footer">
+    <div class="mailing-banner">
+      <h2 class="mailing-heading">
+        <span class="mailing-heading-white">Want to be a part of our community of innovators? </span><span class="mailing-heading-italic">We'd love to keep in touch.</span>
+      </h2>
+      <button type="button" class="mailing-btn">Join Our Mailing List</button>
+      <img src="https://innovate-us.org/images/logos/innovateus.svg" alt="innovate(us)" height="32" class="footer-logo" />
+    </div>
+
     <div class="footer-inner">
-      <div class="footer-col">
-        <h3>Ways to Learn</h3>
-        <a href="#">At-Your-Own-Pace Courses</a>
-        <a href="#">Workshops</a>
-        <a href="#">Coaching Programs</a>
+      <div class="footer-col footer-links-col">
+        <a href="#" class="footer-link">Contact Us</a>
+        <a href="#" class="footer-link">Privacy Policy</a>
+        <a href="#" class="footer-link">Accessibility Policy</a>
       </div>
-      <div class="footer-col">
-        <h3>News &amp; Perspectives</h3>
-        <a href="#">Updates from InnovateUS</a>
-        <a href="#">Reboot Democracy Blog</a>
-        <a href="#">Observatory of Public Sector AI</a>
-      </div>
-      <div class="footer-col">
-        <h3>About Us</h3>
-        <a href="#">Mission &amp; Vision</a>
-        <a href="#">Our Team</a>
-        <a href="#">Media Kit</a>
+      <div class="footer-col follow-us-col">
+        <span class="follow-us-text">Follow us on</span>
+        <div class="social-icons-grid">
+          <button type="button" class="icon-btn" aria-label="Follow us on LinkedIn (opens in new window)">in</button>
+          <button type="button" class="icon-btn bluesky-btn" aria-label="Follow us on Bluesky (opens in new window)">🦋</button>
+        </div>
       </div>
       <div class="footer-col subscribe-col">
-        <h3>Subscribe for Updates</h3>
+        <p class="footer-form__title">
+          <span class="title-subscribe">Subscribe</span><span class="title-for-updates">for Updates</span>
+        </p>
         <div class="subscribe-box">
           <input type="email" placeholder="Email address" />
           <button type="button">SUBSCRIBE</button>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>Contact Us</span>
-      <span>Privacy Policy</span>
-      <span>Accessibility Policy</span>
-      <span class="footer-license">Licensed under CC BY-SA 4.0</span>
+
+    <div class="footer-legal">
+      <span>This work is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</span>
     </div>
   </footer>
 
