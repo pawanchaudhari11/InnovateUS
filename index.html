@@ -17,7 +17,7 @@
       </a>
       <nav class="site-nav">
         <a href="#">Ways to Learn <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
-        <a href="#">Featured Topics <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
+        <a href="#">Featured Topics</a>
         <a href="#">News &amp; Perspectives <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
         <a href="#">About Us <svg class="nav-caret" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg></a>
       </nav>
@@ -32,18 +32,18 @@
 
       <form id="registration-form" novalidate>
         <div class="field">
-          <label for="email">Email address <span class="required">*</span></label>
-          <input type="email" id="email" name="email" autocomplete="email" required />
+          <label for="email">Email <span class="required">*</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" placeholder="your.email@example.com" required />
         </div>
 
         <div class="field-row">
           <div class="field">
-            <label for="first_name">First name <span class="required">*</span></label>
-            <input type="text" id="first_name" name="first_name" autocomplete="given-name" required />
+            <label for="first_name">First Name <span class="required">*</span></label>
+            <input type="text" id="first_name" name="first_name" autocomplete="given-name" placeholder="John" required />
           </div>
           <div class="field">
-            <label for="last_name">Last name <span class="required">*</span></label>
-            <input type="text" id="last_name" name="last_name" autocomplete="family-name" required />
+            <label for="last_name">Last Name <span class="required">*</span></label>
+            <input type="text" id="last_name" name="last_name" autocomplete="family-name" placeholder="Doe" required />
           </div>
         </div>
 
@@ -51,7 +51,7 @@
           <div class="field field-half">
             <label for="country_select">Country <span class="required">*</span></label>
             <select id="country_select" name="registrant_country" autocomplete="off" required>
-              <option value="" disabled selected>Select an option</option>
+              <option value="" disabled selected>Select country (required)</option>
               <option value="United States">United States</option>
               <option value="Outside of United States">Outside of United States</option>
             </select>
@@ -72,7 +72,7 @@
           <div class="field field-half">
             <label for="gov_org">Do you work for or primarily support a government or government-affiliated organization? <span class="required">*</span></label>
             <select id="gov_org" name="gov_org" required>
-              <option value="" disabled selected>Select an answer</option>
+              <option value="" disabled selected></option>
               <option value="Yes, I'm an employee of a government agency" data-shows-level="true">Yes, I'm an employee of a government agency</option>
               <option value="Yes, I'm a contractor or consultant working with a government agency" data-shows-level="true">Yes, I'm a contractor or consultant working with a government agency</option>
               <option value="Yes, I work for a government-affiliated organization (e.g., public university, nonprofit, or quasi-governmental organization)" data-shows-level="true">Yes, I work for a government-affiliated organization (e.g., public university, nonprofit, or quasi-governmental organization)</option>
@@ -98,10 +98,9 @@
         <fieldset class="field series-fieldset">
           <legend>Selected Event Series <span class="required">*</span></legend>
           <p class="series-count" id="series-count">You are registering for <strong>0</strong> event series.</p>
-          <p class="series-hint" id="series-hint">Select at least one series to continue.</p>
           <div class="select-all-bar">
             <button type="button" class="select-all-btn" id="select-all-btn">Select All Series</button>
-            <span class="select-all-hint">or choose individual series below</span>
+            <span class="select-all-hint" id="series-hint">Select at least one series to continue.</span>
           </div>
           <div class="series-list" id="series-list"></div>
         </fieldset>
@@ -128,7 +127,23 @@
         <span class="mailing-heading-white">Want to be a part of our community of innovators? </span><span class="mailing-heading-italic">We'd love to keep in touch.</span>
       </h2>
       <button type="button" class="mailing-btn">Join Our Mailing List</button>
-      <img src="https://innovate-us.org/images/logos/innovateus.svg" alt="innovate(us)" height="32" class="footer-logo" />
+      <svg class="footer-logo" role="img" aria-label="innovate(us)" viewBox="0 0 790.4 105.93">
+        <style>.footer-logo .cls-1{fill:#d09006;}.footer-logo .cls-2{fill:#f9fbff;}</style>
+        <g>
+          <path class="cls-2" d="M26.68,21.83c-2.43,0-4.85-.81-6.47-2.83-1.62-1.62-2.43-4.04-2.43-6.47s.81-4.45,2.43-6.47c1.62-1.62,4.04-2.83,6.47-2.83,2.83.4,4.85,1.21,6.47,3.23,1.62,1.62,2.83,4.04,2.83,6.47s-.81,4.45-2.83,6.47c-1.62,1.62-3.64,2.43-6.47,2.43ZM41.24,90.97c-6.87,0-12.13-1.62-15.77-4.85-3.64-3.23-5.26-8.09-5.26-14.55v-28.3H0v-10.11h33.15v37.2c0,3.23.81,5.66,2.43,7.28,1.62,1.62,4.04,2.43,7.28,2.43,2.02,0,3.64,0,5.66-.4s3.64-.81,6.06-1.62v10.92c-1.62.81-3.64,1.21-6.06,1.62-2.43,0-4.85.4-7.28.4Z"/>
+          <path class="cls-2" d="M70.35,89.75v-56.6h12.94v8.49c4.45-6.06,10.11-9.3,17.38-9.3,4.04,0,7.28.81,10.11,2.43,2.83,1.62,5.26,4.04,6.87,7.28,1.62,2.83,2.43,6.47,2.43,10.51v37.2h-12.94v-33.56c0-4.04-1.21-7.28-3.23-9.7-2.43-2.43-5.26-3.64-8.89-3.64-2.43,0-4.45.4-6.87,1.62-2.02,1.21-3.64,2.43-5.26,4.45v41.24h-12.53v-.4Z"/>
+          <path class="cls-2" d="M138.27,89.75v-56.6h12.94v8.49c4.45-6.06,10.11-9.3,17.38-9.3,4.04,0,7.28.81,10.11,2.43,2.83,1.62,5.26,4.04,6.87,7.28,1.62,2.83,2.43,6.47,2.43,10.51v37.2h-12.94v-33.56c0-4.04-1.21-7.28-3.23-9.7-2.43-2.43-5.26-3.64-8.89-3.64-2.43,0-4.45.4-6.87,1.62-2.02,1.21-3.64,2.43-5.26,4.45v41.24h-12.53v-.4Z"/>
+          <path class="cls-2" d="M230.85,90.97c-5.26,0-10.11-1.21-14.55-4.04s-7.68-6.06-10.11-10.51-3.64-9.3-3.64-14.96,1.21-10.51,3.64-14.96c2.43-4.45,6.06-8.09,10.11-10.51,4.45-2.83,9.3-4.04,14.55-4.04s10.11,1.21,14.55,4.04c4.45,2.43,7.68,6.06,10.11,10.51,2.43,4.45,3.64,9.3,3.64,14.96s-1.21,10.51-3.64,14.96c-2.43,4.45-6.06,8.09-10.11,10.51-4.45,2.83-9.3,4.04-14.55,4.04ZM230.85,80.05c3.23,0,5.66-.81,8.09-2.43s4.45-3.64,5.66-6.47c1.62-2.83,2.02-6.06,2.02-9.7s-.81-6.87-2.02-9.3c-1.21-2.83-3.23-4.85-5.66-6.47-2.43-1.62-5.26-2.43-8.09-2.43s-5.66.81-8.09,2.43c-2.43,1.62-4.04,3.64-5.66,6.47-1.21,2.83-2.02,5.66-2.02,9.3s.81,6.87,2.02,9.7c1.62,2.83,3.23,4.85,5.66,6.47,2.02,1.62,4.85,2.43,8.09,2.43Z"/>
+          <path class="cls-2" d="M292.31,89.75l-23.85-56.6h13.75l16.58,41.64,16.17-41.64h13.34l-23.85,56.6h-12.13Z"/>
+          <path class="cls-2" d="M359.82,90.97c-4.04,0-7.68-.81-10.51-2.02-3.23-1.62-5.66-3.64-7.28-6.06s-2.43-5.66-2.43-8.89c0-3.64.81-6.47,2.43-8.89s4.45-4.45,7.68-5.66,7.28-2.02,11.72-2.02c2.83,0,5.26.4,8.09.81,2.43.4,5.26,1.62,7.68,2.83v-5.66c0-4.04-1.21-6.87-3.23-8.89s-5.66-3.23-10.11-3.23c-2.43,0-5.26.4-8.09,1.21s-5.66,2.02-9.3,3.64l-4.85-9.3c4.45-2.02,8.49-3.64,12.53-4.85,4.04-.81,8.09-1.62,11.72-1.62,7.28,0,13.34,2.02,17.38,5.66,4.04,3.64,6.06,8.89,6.06,15.77v36.39h-12.53v-6.06c-2.43,2.43-5.26,4.04-8.09,5.26-2.43.81-5.26,1.62-8.89,1.62ZM351.74,73.18c0,2.83,1.21,4.85,3.23,6.47s5.26,2.43,8.89,2.43c2.83,0,5.26-.4,7.28-1.21,2.43-.81,4.45-2.02,6.47-3.64v-8.89c-2.02-.81-4.04-1.62-6.47-2.02-2.43-.81-4.85-1.21-7.28-1.21-3.64,0-6.87.81-8.89,2.43-2.43,1.21-3.23,3.23-3.23,5.66Z"/>
+          <path class="cls-2" d="M444.32,90.97c-7.28,0-12.53-1.62-16.17-4.45-3.64-3.23-5.26-7.68-5.26-13.75v-29.11h-18.19v-10.11h18.19v-16.17l12.94-2.83v18.19h23.85v10.11h-23.85v26.68c0,3.64.81,6.06,2.43,7.68s4.45,2.43,8.09,2.43c2.02,0,4.04,0,6.06-.4s4.85-1.21,7.28-2.02v10.92c-2.43.81-4.85,1.21-7.68,1.62-2.43.81-5.26,1.21-7.68,1.21Z"/>
+          <path class="cls-2" d="M503.75,90.97c-5.66,0-10.51-1.21-14.96-4.04-4.45-2.83-8.09-6.06-10.51-10.51s-4.04-9.3-4.04-14.96,1.21-10.51,3.64-14.96c2.43-4.45,5.66-7.68,10.11-10.51s8.89-4.04,14.55-4.04,10.51,1.21,14.55,4.04c4.45,2.43,7.68,6.06,10.11,10.51,2.43,4.45,3.64,9.3,3.64,14.96v3.23h-44.07c.4,3.23,1.21,5.66,2.83,8.09,1.62,2.43,3.64,4.04,6.06,5.66,2.43,1.21,5.26,2.02,8.49,2.02,2.83,0,5.66-.4,8.09-1.62,2.43-1.21,4.85-2.83,6.47-4.85l8.49,7.68c-3.23,3.23-6.87,5.66-10.92,7.28-3.64,1.21-7.68,2.02-12.53,2.02ZM487.18,56.6h31.54c-.4-2.83-1.62-5.26-2.83-7.28-1.62-2.02-3.23-3.64-5.66-4.85-2.02-1.21-4.85-1.62-7.28-1.62-2.83,0-4.85.4-7.28,1.62-2.02,1.21-4.04,2.83-5.26,4.85-1.62,2.02-2.83,4.45-3.23,7.28Z"/>
+          <path class="cls-1" d="M586.23,105.93c-6.87-3.23-12.53-7.28-17.79-12.53-4.85-5.26-8.89-11.32-11.72-18.19s-4.04-14.15-4.04-22.24,1.21-15.36,4.04-22.24,6.87-12.94,11.72-18.19C573.7,7.28,579.36,3.23,586.23,0l5.26,8.89c-8.89,4.45-15.77,10.51-20.21,18.19-4.45,7.28-6.87,16.17-6.87,25.87s2.43,18.6,6.87,26.28c4.45,7.28,11.32,13.34,20.21,18.19l-5.26,8.49Z"/>
+          <path class="cls-1" d="M632.32,81.67c-4.04,0-7.28-.81-10.11-2.43s-5.26-4.04-6.87-7.28c-1.62-2.83-2.43-6.47-2.43-10.51V23.85h12.94v33.56c0,4.04,1.21,7.68,3.23,10.11,2.43,2.43,5.26,3.64,8.89,3.64,2.43,0,4.85-.4,6.87-1.62s3.64-2.43,5.26-4.45V23.85h12.94v56.6h-12.94v-8.49c-4.85,6.47-10.51,9.7-17.79,9.7Z"/>
+          <path class="cls-1" d="M705.09,81.67c-5.26,0-10.11-.81-14.55-2.02-4.45-1.62-8.09-3.64-11.32-6.06l6.06-8.49c4.04,2.43,7.28,4.04,10.51,5.26,3.23.81,6.06,1.62,9.3,1.62,4.04,0,7.28-.81,9.7-2.02,2.43-1.21,3.64-3.23,3.64-5.26,0-1.62-.81-3.23-2.02-4.04s-3.23-1.62-5.26-2.02-4.45-.81-7.28-1.21c-2.83-.4-5.26-.81-8.09-1.62-2.83-.4-5.26-1.62-7.28-2.43-2.02-1.21-4.04-2.83-5.26-4.45-1.21-2.02-2.02-4.85-2.02-8.09,0-3.64.81-6.87,2.83-9.3,2.02-2.83,4.85-4.85,8.09-6.06,3.64-1.62,7.68-2.02,12.53-2.02,4.45,0,8.49.4,12.53,1.62,4.04,1.21,8.09,2.83,11.72,5.66l-6.06,8.49c-2.83-2.02-6.06-3.64-9.3-4.45-3.23-.81-6.06-1.21-9.3-1.21-3.64,0-6.47.4-8.49,1.62-2.02,1.21-3.23,2.83-3.23,4.85,0,1.62.81,3.23,2.02,4.04s3.23,1.62,5.26,2.02c2.43.4,4.85.81,7.28,1.21s5.26.81,8.09,1.62c2.83.4,5.26,1.62,7.28,2.43,2.43,1.21,4.04,2.83,5.26,4.85s2.02,4.85,2.02,8.09c0,3.64-1.21,6.87-3.23,9.7-2.02,2.83-5.26,4.85-8.89,6.47-3.64.4-7.68,1.21-12.53,1.21Z"/>
+          <path class="cls-1" d="M756.84,0c6.87,3.23,12.53,7.28,17.79,12.53,5.26,5.26,8.89,11.32,11.72,18.19s4.04,14.15,4.04,22.24-1.21,15.36-4.04,22.24-6.47,12.94-11.72,18.19c-4.85,5.26-10.92,9.3-17.79,12.53l-5.26-8.89c8.89-4.45,15.77-10.51,20.21-18.19,4.45-7.28,6.87-16.17,6.87-25.87s-2.43-18.6-6.87-25.87c-4.45-7.28-11.32-13.34-20.21-18.19l5.26-8.89Z"/>
+        </g>
+      </svg>
     </div>
 
     <div class="footer-inner">
@@ -140,8 +155,8 @@
       <div class="footer-col follow-us-col">
         <span class="follow-us-text">Follow us on</span>
         <div class="social-icons-grid">
-          <button type="button" class="icon-btn" aria-label="Follow us on LinkedIn (opens in new window)">in</button>
-          <button type="button" class="icon-btn bluesky-btn" aria-label="Follow us on Bluesky (opens in new window)">🦋</button>
+          <button type="button" class="icon-btn" aria-label="Follow us on LinkedIn (opens in new window)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></button>
+          <button type="button" class="icon-btn" aria-label="Follow us on Bluesky (opens in new window)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037-.856 3.061-3.978 3.842-6.755 3.37 4.854.826 6.089 3.562 3.422 6.299-5.065 5.196-7.28-1.304-7.847-2.97-.104-.305-.152-.448-.153-.327 0-.121-.05.022-.153.327-.568 1.666-2.782 8.166-7.847 2.97-2.667-2.737-1.432-5.473 3.422-6.3-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg></button>
         </div>
       </div>
       <div class="footer-col subscribe-col">
@@ -149,7 +164,7 @@
           <span class="title-subscribe">Subscribe</span><span class="title-for-updates">for Updates</span>
         </p>
         <div class="subscribe-box">
-          <input type="email" placeholder="Email address" />
+          <input type="email" placeholder="Your Email" />
           <button type="button">SUBSCRIBE</button>
         </div>
       </div>
