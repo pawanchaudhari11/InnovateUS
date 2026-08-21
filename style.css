@@ -9,8 +9,8 @@
   --color-border: #bcd8f6;       /* Icy Blue */
   --color-alice: #e4effc;        /* Alice Blue */
   --color-muted: #5b6b7c;
-  --radius: 8px;
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --radius: 0.5333rem;
+  --shadow: 0 0.2667rem 1.3333rem rgba(0, 0, 0, 0.08);
   --font-display: "DM Serif Display", Georgia, serif;
   --font-body: "Libre Franklin", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -44,9 +44,9 @@ a {
   border-bottom: 1px solid #dbe3f5;
 }
 .header-inner {
-  max-width: 1440px;
+  max-width: 96rem;
   margin: 0 auto;
-  padding: 32px 24px;
+  padding: 2.1333rem 1.6rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,17 +54,17 @@ a {
 .logo img { display: block; }
 .site-nav {
   display: flex;
-  gap: 44px;
-  margin-left: 72px;
+  gap: 2.9333rem;
+  margin-left: 4.8rem;
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.3;
 }
-.site-nav a { color: var(--color-ink); display: inline-flex; align-items: center; gap: 4px; }
+.site-nav a { color: var(--color-ink); display: inline-flex; align-items: center; gap: 0.2667rem; }
 .site-nav a:hover { color: var(--color-primary); }
-.nav-caret { width: 18px; height: 18px; flex-shrink: 0; }
+.nav-caret { width: 1.2rem; height: 1.2rem; flex-shrink: 0; }
 .nav-cta {
-  margin-left: 56px;
+  margin-left: 3.7333rem;
   background: transparent;
   border: 1.5px solid var(--color-primary);
   color: var(--color-primary);
@@ -72,8 +72,8 @@ a {
   font-size: 0.85rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  padding: 14px 28px;
-  border-radius: 999px;
+  padding: 0.9333rem 1.8667rem;
+  border-radius: 66.6rem;
   transition: background 0.2s ease, color 0.2s ease;
 }
 .nav-cta:hover { background: var(--color-primary); color: #ffffff; }
@@ -83,16 +83,16 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 88px 20px 56px;
+  padding: 5.8667rem 1.3333rem 6.6667rem;
 }
 .form-card {
   width: 100%;
-  max-width: 900px;
+  max-width: 60rem;
   margin: 0 auto;
   background: var(--color-surface);
-  border-radius: 16px;
+  border-radius: 1.0667rem;
   box-shadow: var(--shadow);
-  padding: 35px;
+  padding: 2.3333rem;
 }
 .form-card h1 {
   font-family: var(--font-body);
@@ -100,26 +100,26 @@ a {
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin: 0 0 6px;
+  margin: 0 0 0.4rem;
   color: var(--color-primary);
 }
 .subhead {
-  margin: 0 0 2px;
+  margin: 0 0 0.1333rem;
   color: var(--color-muted);
   font-size: 0.95rem;
 }
 .series-name {
-  margin: 0 0 26px;
+  margin: 0 0 1.7333rem;
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--color-primary-dark);
 }
 .field-row {
   display: flex;
-  gap: 17px;
+  gap: 1.1333rem;
 }
 .field-row .field { flex: 1; }
-.field-row .field.field-half { flex: 0 0 calc(50% - 9px); max-width: calc(50% - 9px); }
+.field-row .field.field-half { flex: 0 0 calc(50% - 0.6rem); max-width: calc(50% - 0.6rem); }
 .field-row--align-bottom .field {
   display: flex;
   flex-direction: column;
@@ -128,30 +128,30 @@ a {
   display: none;
 }
 .field-row--align-bottom .field label {
-  max-width: 300px;
+  max-width: 20rem;
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 0.8rem;
 }
 .field-row--align-bottom .field select { margin-top: auto; }
-.field { margin-bottom: 19px; }
+.field { margin-bottom: 1.2667rem; }
 .field label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 0.4rem;
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--color-ink);
 }
 .required {
   color: #dc2626;
-  margin-left: 4px;
+  margin-left: 0.2667rem;
 }
 .field input[type="text"],
 .field input[type="email"],
 .field select {
   width: 100%;
-  padding: 10px 19px;
+  padding: 0.6667rem 1.2667rem;
   border: 1px solid #d1d5db;
-  border-radius: 5px;
+  border-radius: 0.3333rem;
   font-size: 1.05rem;
   font-family: inherit;
   background: #ffffff;
@@ -162,25 +162,25 @@ a {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding-right: 40px;
+  padding-right: 2.6667rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M0 0L6 8L12 0Z' fill='%23142941'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-position: right 18px center;
-  background-size: 12px 8px;
+  background-position: right 1.2rem center;
+  background-size: 0.8rem 0.5333rem;
 }
 .field input:focus,
 .field select:focus {
   outline: none;
   border-color: #3b5bdb;
-  box-shadow: 0 0 0 3px rgba(59, 91, 219, 0.15);
+  box-shadow: 0 0 0 0.2rem rgba(59, 91, 219, 0.15);
 }
 .series-fieldset {
   border: none;
   border-top: 1px solid #e2e2e6;
   border-bottom: 1px solid #e2e2e6;
   border-radius: 0;
-  padding: 28px 0;
-  margin: 0 0 18px;
+  padding: 1.8667rem 0;
+  margin: 0 0 1.2rem;
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
@@ -191,10 +191,10 @@ a {
   font-weight: 400;
   font-size: 1.6rem;
   color: var(--color-ink);
-  margin-bottom: 4px;
+  margin-bottom: 0.2667rem;
 }
 .series-count {
-  margin: 0 0 2px;
+  margin: 0 0 0.1333rem;
   font-size: 0.88rem;
   font-weight: 400;
   color: var(--color-muted);
@@ -210,17 +210,17 @@ a {
 .select-all-bar {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 0.9333rem;
   background: var(--color-bg);
-  border-radius: 8px;
-  padding: 14px 17px;
-  margin: 8px 0 20px;
+  border-radius: 0.5333rem;
+  padding: 0.9333rem 1.1333rem;
+  margin: 0.5333rem 0 1.3333rem;
 }
 .select-all-btn {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 10px 18px;
+  border-radius: 0.4rem;
+  padding: 0.6667rem 1.2rem;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -238,15 +238,15 @@ a {
 .series-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.4rem;
 }
 .series-item {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.0667rem;
   min-width: 0;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 0.8rem;
+  border-radius: 0.5333rem;
   transition: background 0.15s ease;
 }
 .series-item:hover {
@@ -262,9 +262,9 @@ a {
   margin: 0;
 }
 .series-item .icon-badge {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+  width: 2.6667rem;
+  height: 2.6667rem;
+  border-radius: 0.5333rem;
   background: #fafafa;
   border: 1px solid #e2e2e6;
   color: var(--color-primary);
@@ -274,17 +274,17 @@ a {
   flex-shrink: 0;
 }
 .series-item .icon-badge svg {
-  width: 20px;
-  height: 20px;
+  width: 1.3333rem;
+  height: 1.3333rem;
 }
 .series-item input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
+  width: 1.3333rem;
+  height: 1.3333rem;
   flex-shrink: 0;
   border: 1.5px solid var(--color-border);
-  border-radius: 5px;
+  border-radius: 0.3333rem;
   background: var(--color-surface);
   cursor: pointer;
   position: relative;
@@ -296,10 +296,10 @@ a {
 .series-item input[type="checkbox"]:checked::after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 10px;
+  left: 0.4rem;
+  top: 0.1333rem;
+  width: 0.4rem;
+  height: 0.6667rem;
   border: solid #fff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -312,7 +312,7 @@ a {
 .checkbox-field {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0.6667rem;
 }
 .checkbox-field label {
   font-weight: 400;
@@ -323,12 +323,12 @@ a {
 .checkbox-field input[type="checkbox"] {
   appearance: none;
   -webkit-appearance: none;
-  width: 20px;
-  height: 20px;
-  margin-top: 2px;
+  width: 1.3333rem;
+  height: 1.3333rem;
+  margin-top: 0.1333rem;
   flex-shrink: 0;
   border: 1.5px solid var(--color-border);
-  border-radius: 5px;
+  border-radius: 0.3333rem;
   background: var(--color-surface);
   cursor: pointer;
   position: relative;
@@ -340,10 +340,10 @@ a {
 .checkbox-field input[type="checkbox"]:checked::after {
   content: "";
   position: absolute;
-  left: 6px;
-  top: 2px;
-  width: 6px;
-  height: 10px;
+  left: 0.4rem;
+  top: 0.1333rem;
+  width: 0.4rem;
+  height: 0.6667rem;
   border: solid #fff;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
@@ -354,15 +354,15 @@ a {
 }
 .form-footer {
   border-top: 1px solid #e2e2e6;
-  margin-top: 18px;
-  padding-top: 28px;
+  margin-top: 1.2rem;
+  padding-top: 1.8667rem;
 }
 button[type="submit"] {
   display: block;
   margin: 0 auto;
-  padding: 14px 34px;
+  padding: 0.9333rem 2.2667rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.4rem;
   background: var(--color-primary);
   color: #ffffff;
   font-size: 0.85rem;
@@ -381,7 +381,7 @@ button[type="submit"]:focus-visible {
 button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
 #form-message {
   min-height: 1.2em;
-  margin: 14px 0 0;
+  margin: 0.9333rem 0 0;
   font-size: 0.88rem;
   color: var(--color-muted);
   text-align: center;
@@ -390,7 +390,7 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   text-align: center;
   font-size: 0.82rem;
   color: var(--color-muted);
-  margin: 20px 0 0;
+  margin: 1.3333rem 0 0;
 }
 .support-text .obfuscated-email {
   color: #3b5bdb;
@@ -406,18 +406,18 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   padding: 0 0 0;
 }
 .mailing-banner {
-  max-width: 1384px;
-  margin: 10px 102px;
-  padding: 68px 43px 25px;
+  max-width: 92.2667rem;
+  margin: 0.6667rem 6.8rem;
+  padding: 4.5333rem 2.8667rem 1.6667rem;
   text-align: left;
 }
 .mailing-heading {
-  max-width: 700px;
+  max-width: 46.6667rem;
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.9rem;
   line-height: 1.25;
-  margin: 0 0 24px;
+  margin: 0 0 1.6rem;
 }
 .mailing-heading-white { color: var(--color-bg); }
 .mailing-heading-italic { color: var(--color-border); font-style: italic; }
@@ -426,36 +426,36 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   align-items: center;
   background: transparent;
   border: 1.5px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: 66.6rem;
   color: var(--color-border);
   font-family: inherit;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 13px 26px;
+  padding: 0.8667rem 1.7333rem;
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
 .mailing-btn:hover { background: var(--color-border); color: #0d2a4a; }
 .footer-logo {
   display: block;
-  height: 32px;
+  height: 2.1333rem;
   width: auto;
-  margin-top: 72px;
+  margin-top: 4.8rem;
 }
 .footer-inner {
-  max-width: 1384px;
-  margin: 0 102px;
+  max-width: 92.2667rem;
+  margin: 0 6.8rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 120px;
-  padding: 48px 43px;
+  gap: 8rem;
+  padding: 3.2rem 2.8667rem;
 }
-.footer-col { min-width: 160px; }
-.subscribe-col { padding-right: 24px; }
-.footer-links-col { display: flex; flex-direction: column; gap: 10px; }
+.footer-col { min-width: 10.6667rem; }
+.subscribe-col { padding-right: 1.6rem; }
+.footer-links-col { display: flex; flex-direction: column; gap: 0.6667rem; }
 .footer-link {
   display: block;
   color: var(--color-alice);
@@ -464,19 +464,19 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   opacity: 0.9;
 }
 .footer-link:hover { opacity: 1; text-decoration: underline; }
-.follow-us-col { display: flex; flex-direction: column; gap: 14px; }
+.follow-us-col { display: flex; flex-direction: column; gap: 0.9333rem; }
 .follow-us-text {
   font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   text-transform: capitalize;
 }
-.social-icons-grid { display: flex; gap: 10px; }
+.social-icons-grid { display: flex; gap: 0.6667rem; }
 .icon-btn {
-  width: 32px;
-  height: 32px;
+  width: 2.1333rem;
+  height: 2.1333rem;
   border: 1.5px solid var(--color-border);
-  border-radius: 8px;
+  border-radius: 0.5333rem;
   background: transparent;
   color: var(--color-border);
   display: inline-flex;
@@ -485,11 +485,11 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   cursor: pointer;
   transition: background 0.2s ease, color 0.2s ease;
 }
-.icon-btn svg { width: 16px; height: 16px; }
+.icon-btn svg { width: 1.0667rem; height: 1.0667rem; }
 .icon-btn:hover { background: var(--color-border); color: #0d2a4a; }
 .footer-form__title {
   font-size: 0;
-  margin: 0 0 12px;
+  margin: 0 0 0.8rem;
 }
 .title-subscribe {
   font-family: var(--font-display);
@@ -505,11 +505,11 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
   font-weight: 400;
   color: var(--color-bg);
 }
-.subscribe-box { display: flex; gap: 10px; }
+.subscribe-box { display: flex; gap: 0.6667rem; }
 .subscribe-box input {
   flex: 1;
-  padding: 7px 80px;
-  border-radius: 5px;
+  padding: 0.4667rem 5.3333rem;
+  border-radius: 0.3333rem;
   border: 1px solid rgba(188, 216, 246, 0.5);
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
@@ -519,13 +519,13 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
 .subscribe-box input:focus {
   outline: none;
   border-color: var(--color-border);
-  box-shadow: 0 0 0 3px rgba(188, 216, 246, 0.3);
+  box-shadow: 0 0 0 0.2rem rgba(188, 216, 246, 0.3);
 }
 .subscribe-box input::placeholder { color: rgba(255, 255, 255, 0.6); }
 .subscribe-box button {
-  padding: 10px 20px;
+  padding: 0.6667rem 1.3333rem;
   border: 1.5px solid var(--color-border);
-  border-radius: 999px;
+  border-radius: 66.6rem;
   background: transparent;
   color: var(--color-border);
   font-weight: 600;
@@ -543,7 +543,7 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
 .footer-legal {
   background: #16294a;
   text-align: center;
-  padding: 20px 24px;
+  padding: 1.3333rem 1.6rem;
   font-size: 0.9rem;
   color: var(--color-bg);
 }
@@ -557,11 +557,11 @@ button[type="submit"]:disabled { opacity: 0.6; cursor: not-allowed; }
 }
 
 @media (max-width: 640px) {
-  .header-inner { flex-wrap: wrap; gap: 12px; }
-  .site-nav { order: 3; width: 100%; flex-wrap: wrap; gap: 12px 20px; margin-left: 0; }
+  .header-inner { flex-wrap: wrap; gap: 0.8rem; }
+  .site-nav { order: 3; width: 100%; flex-wrap: wrap; gap: 0.8rem 1.3333rem; margin-left: 0; }
   .nav-cta { margin-left: 0; }
-  .form-card { padding: 24px; }
+  .form-card { padding: 1.6rem; }
   .field-row { flex-direction: column; gap: 0; }
   .field-row .field.field-half { max-width: 100%; }
-  .mailing-banner { padding: 40px 20px 0; }
+  .mailing-banner { padding: 2.6667rem 1.3333rem 0; }
 }
